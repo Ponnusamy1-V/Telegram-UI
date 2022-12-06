@@ -1,18 +1,18 @@
 <template>
     <div class="contact" @click="changeMessages">
         <div class="contact-image">
-            <ImageView :image="image" :contact="contact_name" />
+            <ImageView :image="message.image" :contact="message.contact_name" />
         </div>
         <div class="contact-first-row">
             <div class="contact-name">
-                {{ contact_name }}
+                {{ message.contact_name }}
             </div>
             <div class="contact-message-details">
                 <div class="contact-message">
-                    {{ message }}
+                    {{ message.message }}
                 </div>
                 <div class="contact-message-time">
-                    {{ time }}
+                    {{ message.time }}
                 </div>
             </div>
         </div>
@@ -25,13 +25,13 @@ import ImageView from "./ImageView.vue";
 export default {
     name: "MessageContact",
     components: { ImageView },
-    props: { contact_name: String, time: String, message: String, image: String },
+    props: { message: Object },
     data() {
         return {}
     },
     methods: {
         changeMessages() {
-            this.emitter.emit('loadMessage', { contact_name: this.contact_name, time: this.time, message: this.message, image: this.image })
+            this.emitter.emit('loadMessage', this.message)
         }
     }
 }
@@ -42,7 +42,7 @@ export default {
     width: 100%;
     display: flex;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
     background: #403e3e4d;
     border-bottom: 1px solid grey;
     cursor: pointer;

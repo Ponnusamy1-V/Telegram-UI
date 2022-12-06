@@ -1,8 +1,7 @@
 <template>
     <div class="left-bar">
         <div v-for="contact in leftbardata.concat(leftbardata).concat(leftbardata).concat(leftbardata)" :key="contact" class="contact-items">
-            <MessageContact class="message-contact" :contact_name="contact.contact_name" :message="contact.message"
-                :time="contact.time" :image="contact.image" />
+            <MessageContact class="message-contact" :message="contact" />
         </div>
     </div>
 </template>
@@ -15,35 +14,9 @@ export default {
     components: {
         MessageContact
     },
-    // props: {leftbardata: Array},
+    props: {leftbardata: Object},
     data() {
         return {
-            contact: "",
-            myObject: {
-                title: 'How to do lists in Vue',
-                author: 'Jane Doe',
-                publishedAt: '2016-04-10'
-            },
-            leftbardata: [
-                {
-                    message: "Hello, how are you?",
-                    contact_name: "Ponnusamy",
-                    time: "23:45",
-                    image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
-                },
-                {
-                    message: "Hello",
-                    contact_name: "Ponnusamy",
-                    time: "23:45",
-                    image: "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_960_720.jpg"
-                },
-                {
-                    message: "Hiii",
-                    contact_name: "Shankar",
-                    time: "22:45",
-                    image: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg"
-                }
-            ]
         }
     }
 }
@@ -53,7 +26,7 @@ export default {
 .left-bar {
     height: 100%;
     width: 100%;
-    background: rgb(226, 226, 220);
+    background: rgb(230, 253, 230);
     overflow-y: scroll;
 }
 
@@ -63,7 +36,6 @@ export default {
 </style>
 <style scoped>
 .contact-items *:hover {
-    background-color: rgb(155, 152, 151);
-
+    background-color: rgb(215, 238, 215);
 }
 </style>
