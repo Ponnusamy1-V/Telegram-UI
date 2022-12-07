@@ -22,7 +22,8 @@ export default {
 
 <style>
 .chat-input-area {
-    width: 100%;
+    min-width: 70%;
+    max-width: 70%;
     border-radius: 10px;
     min-height: 50px;
     max-height: 150px;
@@ -30,14 +31,14 @@ export default {
     color: black;
     font-size: 120%;
     padding: 18px;
+    word-wrap: break-word;
     margin-bottom: 5px;
     z-index: 1;
     position: fixed;
     bottom: 0;
     background: rgb(224, 221, 216);
     justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
+    overflow: scroll;
     box-sizing: border-box;
 }
 [contenteditable][placeholder]:empty:before {

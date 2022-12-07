@@ -1,5 +1,8 @@
 <template>
     <div v-if="(image && contact_name)" class="top-bar">
+        <div class="icon-display-area">
+            <fa icon="arrow-left" size="xl" @click="emptyMessageArea"/>
+        </div>
         <ImageView :image="image" :contact="contact_name" />
         <div class="message-area-top-bar">
             <div class="contact-name-display">
@@ -23,23 +26,39 @@ export default {
     name: "TopBar",
     components: { ImageView },
     props: { image: String, contact_name: String, last_seen: String, online: Boolean },
+    methods: {
+        emptyMessageArea() {
+            this.emitter.emit('emptyMessage');
+        }
+    }
 }
 </script>
 
 <style>
 .top-bar {
-    border: 1px solid rgba(0, 124, 27, 0.671);
-    width: 100%;
+    border-radius: 5%;
+    min-width: 70%;
+    max-width: 70%;
     height: 60px;
     z-index: 1;
     position: fixed;
     top: 0;
     background: rgb(240, 247, 145);
     display: flex;
+    padding-top: 4px;
     justify-content: center;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
+}
+
+.icon-display-area {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+    margin-right: 7px;
+    justify-content: center;
 }
 
 .message-area-top-bar {
@@ -62,9 +81,9 @@ export default {
 }
 
 .top-bar-right-space {
-	display: flex;
-	height: 100%;
-	width: 100%;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 .online-status {

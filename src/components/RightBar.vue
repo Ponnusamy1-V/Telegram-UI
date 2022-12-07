@@ -152,22 +152,27 @@ export default {
     methods: {
         renderMessages(message) {
             this.message = message
+        },
+        emptyMessage() {
+            this.message = {}
         }
     },
     created() {
-        this.emitter.on('loadMessage', this.renderMessages)
+        this.emitter.on('emptyMessage', this.emptyMessage);
+        this.emitter.on('loadMessage', this.renderMessages);
     },
     unmounted() {
-        this.emitter.off('loadMessage', this.renderMessages)
+        this.emitter.off('emptyMessage');
+        this.emitter.off('loadMessage', this.renderMessages);
     }
 }
 </script>
 
 <style>
 .left-bar-list {
-    width: 35%;
+    max-width: 30%;
     height: 100vh;
-    min-width: 22rem;
+    min-width: 30%;
 }
 
 .message-space {
