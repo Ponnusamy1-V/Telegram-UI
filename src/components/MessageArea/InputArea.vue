@@ -36,7 +36,7 @@ export default {
     z-index: 1;
     position: fixed;
     bottom: 0;
-    background: rgb(224, 221, 216);
+    background: rgb(33, 33, 33);
     justify-content: center;
     overflow: scroll;
     box-sizing: border-box;

@@ -36,20 +36,33 @@ export default {
 
 <style>
 .top-bar {
-    border-radius: 5%;
+    border-radius: 5px;
     min-width: 70%;
     max-width: 70%;
     height: 60px;
     z-index: 1;
     position: fixed;
     top: 0;
-    background: rgb(240, 247, 145);
     display: flex;
     padding-top: 4px;
     justify-content: center;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
+    background: rgba(34, 34, 34, 0.84);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+}
+.tgme_header {
+	--search-anim-dur: .2s;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	
+	height: 48px;
 }
 
 .icon-display-area {

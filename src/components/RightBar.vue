@@ -1,5 +1,6 @@
 <template>
-    <LeftBar :leftbardata="leftbardata" class="left-bar-list"></LeftBar>
+    <LeftBar :leftbardata="leftbardata" class="left-bar-list" :class="{ 'stretch-left-bar': !message.contact_name }">
+    </LeftBar>
     <div v-if="message.contact_name" class="message-space" @loadMessage="renderMessages">
         <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
         <div class="chat-space">
@@ -30,7 +31,7 @@ export default {
             message: {},
             leftbardata: [
                 {
-                    message: "Hello, how are you?",
+                    message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                     contact_name: "Ponnusamy",
                     time: "20:45",
                     image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
@@ -158,6 +159,7 @@ export default {
         }
     },
     created() {
+        
         this.emitter.on('emptyMessage', this.emptyMessage);
         this.emitter.on('loadMessage', this.renderMessages);
     },
@@ -175,6 +177,31 @@ export default {
     min-width: 30%;
 }
 
+@media screen and (width < 1000px) {
+    .left-bar-list {
+        display: none;
+    }
+
+    .select-a-chat {
+        visibility: hidden;
+    }
+
+    .stretch-left-bar {
+        min-width: 100%;
+        display: unset;
+    }
+
+    .chat-input-area {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .top-bar {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
 .message-space {
     width: 100%;
     height: 100%;
@@ -185,11 +212,13 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+
 }
+
 body {
-    background: rgb(192, 228, 195);
+    color: white;
 }
+
 .chat-space {
     bottom: 0;
     overflow-y: scroll;
@@ -209,8 +238,8 @@ body {
     transform: translateX(-50%) translateY(-50%);
 
 }
+
 .select-a-chat {
     width: 100%;
-    background: rgb(245, 240, 200);
 }
 </style>

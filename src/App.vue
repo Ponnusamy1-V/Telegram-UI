@@ -1,11 +1,11 @@
 <template>
+  <div class="tgme_background_wrap"></div>
   <div class="message-app">
     <MessageSpace class="right-bar"></MessageSpace>
   </div>
 </template>
 
 <script>
-// import LeftBar from './components/LeftBar.vue'
 import MessageSpace from './components/RightBar.vue'
 export default {
   name: 'App',
@@ -16,12 +16,24 @@ export default {
 </script>
 
 <style>
+.tgme_background_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  display: block;
+  opacity: 0.96;
+  background-image: url('/src/assets/background.svg');
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   height: 100%;
   position: fixed;
   top: 0;
