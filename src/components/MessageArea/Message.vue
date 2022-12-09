@@ -61,6 +61,7 @@ export default {
 }
 
 .message-timestamp {
+    user-select: none;
     width: 100%;
     text-align: right;
     height: 10px;

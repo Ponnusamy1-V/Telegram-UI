@@ -42,6 +42,7 @@ export default {
 
 <style>
 .top-bar {
+    user-select: none;
     border-radius: 5px;
     min-width: var(--right-width);
     max-width: var(--right-width);
