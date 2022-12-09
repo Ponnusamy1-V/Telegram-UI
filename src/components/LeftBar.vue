@@ -9,10 +9,9 @@
         <div class="resizer" id="dragMe"></div>
     </div>
 </template>
-
 <script>
 import MessageContact from "./MessageContact.vue"
-
+import $ from 'jquery'
 export default {
     name: "LeftBar",
     components: {
@@ -34,6 +33,15 @@ export default {
     }
     ,
     mounted() {
+        $(document).ready(function () {
+            var $scrollingDiv = $("#dragMe");
+            $(document.getElementsByClassName('left-bar-list')[0]).scroll(function () {
+                $scrollingDiv
+                    .stop()
+                    .animate({ "marginTop": (document.getElementsByClassName('left-bar-list')[0].scrollTop) }, "slow");
+            });
+        });
+
         this.root = document.querySelector(':root');
         this.resizer = document.getElementById("dragMe");
         this.leftSide = this.resizer.previousElementSibling;
@@ -103,11 +111,14 @@ export default {
 }
 
 .resizer {
+    height: 100%;
     display: block;
+    position: sticky;
     background: rgb(33, 33, 33);
     min-width: 1mm;
-    overflow-y: scroll;
-    cursor: move;
+    bottom: 0;
+    /* overflow-y: scroll; */
+    cursor: col-resize;
     user-select: none;
 }
 
