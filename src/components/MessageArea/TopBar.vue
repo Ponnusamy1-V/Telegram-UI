@@ -28,6 +28,12 @@ export default {
     props: { image: String, contact_name: String, last_seen: String, online: Boolean },
     methods: {
         emptyMessageArea() {
+            let sel = document.getElementsByClassName("selected-chat")
+            for (let idx = 0; idx < sel.length; idx++) {
+                if (sel[idx]!=event.target){
+                sel[idx].classList.remove("selected-chat")
+                }
+            }
             this.emitter.emit('emptyMessage');
         }
     }
@@ -37,8 +43,8 @@ export default {
 <style>
 .top-bar {
     border-radius: 5px;
-    min-width: 70%;
-    max-width: 70%;
+    min-width: var(--right-width);
+    max-width: var(--right-width);
     height: 60px;
     z-index: 1;
     position: fixed;
@@ -49,10 +55,10 @@ export default {
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    background: rgba(34, 34, 34, 0.84);
+    background: rgb(34, 34, 34);
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-	-webkit-backdrop-filter: blur(25px);
-	backdrop-filter: blur(25px);
+	/* -webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px); */
 }
 .tgme_header {
 	--search-anim-dur: .2s;

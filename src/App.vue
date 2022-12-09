@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+:root {
+  --left-width: 35%;
+  --right-width: 65%;
+}
 .tgme_background_wrap {
   position: fixed;
   left: 0;

@@ -1,19 +1,22 @@
 <template>
     <LeftBar :leftbardata="leftbardata" class="left-bar-list" :class="{ 'stretch-left-bar': !message.contact_name }">
     </LeftBar>
-    <div v-if="message.contact_name" class="message-space" @loadMessage="renderMessages">
-        <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
-        <div class="chat-space">
-            <div v-if="message.messages" style="width: 100%; height: 130px;"></div>
-            <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
-            <InputArea />
+    <div class="message-space" @loadMessage="renderMessages">
+        <div v-if="message.contact_name">
+            <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
+            <div class="chat-space">
+                <div v-if="message.messages" style="width: 100%; height: 130px;"></div>
+                <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
+                <InputArea />
+            </div>
+        </div>
+        <div v-else class="select-a-chat">
+            <div class="select-a-chat-message">
+                Select a chat to start conversation
+            </div>
         </div>
     </div>
-    <div v-else class="select-a-chat">
-        <div class="select-a-chat-message">
-            Select a chat to start conversation
-        </div>
-    </div>
+
 </template>
 
 <script>
@@ -159,7 +162,7 @@ export default {
         }
     },
     created() {
-        
+
         this.emitter.on('emptyMessage', this.emptyMessage);
         this.emitter.on('loadMessage', this.renderMessages);
     },
@@ -172,9 +175,10 @@ export default {
 
 <style>
 .left-bar-list {
-    max-width: 30%;
+    max-width: var(--left-width);
     height: 100vh;
-    min-width: 30%;
+    min-width: var(--left-width);
+    user-select: none;
 }
 
 @media screen and (width < 1000px) {
@@ -230,11 +234,18 @@ body {
 }
 
 .select-a-chat-message {
-    width: 100%;
-    font-size: 150%;
+    user-select: none;
     position: absolute;
     top: 50%;
     left: 69%;
+    background: rgb(56, 55, 55);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px !important;
+    padding-top: 2px;
+    padding-right: 2px;
+    word-wrap: break-word;
+    font-weight: 600;
     transform: translateX(-50%) translateY(-50%);
 
 }

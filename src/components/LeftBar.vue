@@ -6,7 +6,7 @@
                 <MessageContact class="message-contact" :message="contact" />
             </div>
         </div>
-        <div class="resizeable-bar"></div>
+        <div class="resizer" id="dragMe"></div>
     </div>
 </template>
 
@@ -21,7 +21,66 @@ export default {
     props: { leftbardata: Object },
     data() {
         return {
+            minLeftWidth: 25,
+            maxLeftWidth: 55,
+            resizer: "",
+            leftSide: "",
+            rightSide: "",
+            rightSide1: "",
+            root: "",
+            x: 0,
+            y: 0,
         }
+    }
+    ,
+    mounted() {
+        this.root = document.querySelector(':root');
+        this.resizer = document.getElementById("dragMe");
+        this.leftSide = this.resizer.previousElementSibling;
+        this.rightSide = document.getElementsByClassName("message-space")[0];
+        this.rightSide1 = document.getElementsByClassName("select-a-chat")[0];
+        this.resizer.addEventListener('mousedown', this.mouseDownHandler);
+    },
+    methods: {
+        mouseDownHandler(e) {
+            this.x = e.clientX;
+            this.y = e.clientY;
+            this.leftWidth = this.leftSide.getBoundingClientRect().width;
+
+            document.addEventListener('mousemove', this.mouseMoveHandler);
+            document.addEventListener('mouseup', this.mouseUpHandler);
+        },
+        mouseUpHandler() {
+            this.resizer.style.removeProperty('cursor');
+            document.body.style.removeProperty('cursor');
+
+            this.leftSide.style.removeProperty('user-select');
+            this.leftSide.style.removeProperty('pointer-events');
+
+            this.rightSide.style.removeProperty('user-select');
+            this.rightSide.style.removeProperty('pointer-events');
+
+            document.removeEventListener('mousemove', this.mouseMoveHandler);
+            document.removeEventListener('mouseup', this.mouseUpHandler);
+        },
+        mouseMoveHandler(e) {
+            document.body.style.cursor = 'col-resize';
+            let leftWidth = parseInt(((this.x || 1) / document.getElementsByTagName("body")[0].getBoundingClientRect().width) * 100);
+            let rightWidth = parseInt(100 - ((this.x || 1) / document.getElementsByTagName("body")[0].getBoundingClientRect().width) * 100);
+            if (leftWidth < this.maxLeftWidth && leftWidth >= this.minLeftWidth) {
+                this.root.style.setProperty('--left-width', `${leftWidth}%`)
+                this.root.style.setProperty('--right-width', `${rightWidth}%`)
+            }
+            this.x = e.clientX;
+            this.y = e.clientY;
+            this.resizer.style.cursor = 'col-resize';
+
+            this.leftSide.style.userSelect = 'none';
+            this.leftSide.style.pointerEvents = 'none';
+
+            this.rightSide.style.userSelect = 'none';
+            this.rightSide.style.pointerEvents = 'none';
+        },
     }
 }
 </script>
@@ -43,15 +102,16 @@ export default {
     flex-wrap: wrap;
 }
 
-.resizeable-bar {
+.resizer {
     display: block;
     background: rgb(33, 33, 33);
-    cursor: col-resize;
     min-width: 1mm;
     overflow-y: scroll;
+    cursor: move;
+    user-select: none;
 }
 
-.resizeable-bar:hover {
+.resizer:hover {
     min-width: 2mm;
 }
 
