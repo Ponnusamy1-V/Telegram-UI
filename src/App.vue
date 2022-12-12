@@ -19,6 +19,7 @@ export default {
 :root {
   --left-width: 35%;
   --right-width: 65%;
+  --input-bar-width: 60%;
 }
 
 .tgme_background_wrap {

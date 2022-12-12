@@ -185,7 +185,9 @@ export default {
     .left-bar-list {
         display: none;
     }
-
+    .resizer {
+        visibility: hidden;
+    }
     .select-a-chat {
         visibility: hidden;
     }

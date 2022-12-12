@@ -46,7 +46,7 @@ export default {
 
 .message-box {
     border-radius: 5px 5px 10px 0px;
-    max-width: 45%;
+    max-width: 55%;
     color: rgb(255, 255, 255);
     background: rgb(33, 33, 33);
     padding: 5px;

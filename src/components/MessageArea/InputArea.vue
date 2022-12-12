@@ -22,8 +22,8 @@ export default {
 
 <style>
 .chat-input-area {
-    min-width: var(--right-width);
-    max-width: var(--right-width);
+    min-width: var(--input-bar-width);
+    max-width: var(--input-bar-width);
     border-radius: 10px;
     min-height: 50px;
     max-height: 150px;

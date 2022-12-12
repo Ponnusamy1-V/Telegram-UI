@@ -37,7 +37,7 @@ export default {
                 sel[idx].classList.remove("selected-chat")
                 }
             }
-            event.target.closest('.contact').classList.add('selected-chat')
+            event.target?.closest('.contact')?.classList?.add('selected-chat')
             this.emitter.emit('loadMessage', this.message)
         }
     }
@@ -55,6 +55,7 @@ export default {
     padding: 10px;
     border-radius: 5px;
     background: rgb(44, 44, 44);
+    /* background: linear-gradient(to bottom, rgb(44, 44, 44) 0%, rgb(20, 20, 20) 100%); */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     box-sizing: border-box;
