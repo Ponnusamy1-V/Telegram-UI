@@ -108,6 +108,7 @@ export default {
 
 .left-contact-list {
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .resizer {
@@ -117,7 +118,6 @@ export default {
     background: rgb(33, 33, 33);
     min-width: 1mm;
     bottom: 0;
-    /* overflow-y: scroll; */
     cursor: col-resize;
     user-select: none;
 }

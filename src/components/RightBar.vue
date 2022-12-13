@@ -35,123 +35,117 @@ export default {
             message: {},
             leftbardata: [
                 {
-                    message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                     contact_name: "Ponnusamy",
-                    time: "20:45",
                     image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
                     messages: [
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45 AM"
+                            timestamp: "10:45"
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47 AM"
+                            timestamp: "10:47"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45 AM"
+                            timestamp: "10:45"
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47 AM"
+                            timestamp: "10:47"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45 AM"
+                            timestamp: "10:45"
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47 AM"
+                            timestamp: "10:47"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45 AM"
+                            timestamp: "10:45"
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47 AM"
+                            timestamp: "10:47"
                         }
                     ]
                 },
                 {
-                    message: "Hello",
                     contact_name: "Ponnusamy",
-                    time: "23:45",
                     image: "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_960_720.jpg",
                     messages: [
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45 AM"
+                            timestamp: "10:45"
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46 AM"
+                            timestamp: "10:46"
                         }
                     ]
                 },
                 {
-                    message: "Hiii",
                     contact_name: "Shankar",
-                    time: "22:45",
                     image: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg",
                     messages: [
-                        
+
                     ]
                 }
             ]
@@ -163,6 +157,9 @@ export default {
             this.message = message
         },
         addNewMessage(message) {
+            if (!this.message.messages) {
+                this.message.messages = []
+            }
             this.message.messages.push(message)
         },
         async emptyMessage() {
@@ -191,7 +188,17 @@ export default {
     user-select: none;
 }
 
+@media screen and (width >= 1000px) {
+    #chat-space {
+        width: var(--right-width) !important;
+    }
+}
+
 @media screen and (width < 1000px) {
+    #chat-space {
+        width: 100% !important;
+    }
+
     .left-bar-list {
         display: none;
     }

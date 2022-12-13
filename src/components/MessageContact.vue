@@ -9,10 +9,10 @@
             </div>
             <div class="contact-message-details">
                 <div class="contact-message">
-                    {{ message.message }}
+                    {{ message.messages?.[message.messages.length -1]?.message }}
                 </div>
                 <div class="contact-message-time">
-                    {{ message.time }}
+                    {{ message.messages?.[message.messages.length -1]?.timestamp }}
                 </div>
             </div>
         </div>

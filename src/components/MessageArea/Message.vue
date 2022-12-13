@@ -65,7 +65,7 @@ export default {
     width: 100%;
     text-align: right;
     height: 10px;
-    font-size: 60%;
+    font-size: 80%;
     opacity: 0.9;
 }
 
