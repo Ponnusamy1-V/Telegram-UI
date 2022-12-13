@@ -1,7 +1,7 @@
 <template>
     <div class="left-bar">
         <div class="left-contact-list">
-            <div v-for="contact in leftbardata.concat(leftbardata).concat(leftbardata).concat(leftbardata)"
+            <div v-for="contact in leftbardata"
                 :key="contact" class="contact-items">
                 <MessageContact class="message-contact" :message="contact" />
             </div>

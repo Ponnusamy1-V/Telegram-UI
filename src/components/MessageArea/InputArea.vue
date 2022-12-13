@@ -1,9 +1,6 @@
 <template>
-    <div 
-        class="chat-input-area" 
-        contenteditable="true" 
-        placeholder="Type a message..."
-        oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" />
+    <div class="chat-input-area" contenteditable="true" v-on:keypress.ctrl.enter="insertNewMessage"
+        placeholder="Type a message..." oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" />
 </template>
 
 <script>
@@ -11,11 +8,27 @@ export default {
     name: "InputArea",
     data() {
         return {
-            input_message: ""
+            newMessage: ""
+        }
+    },
+    methods: {
+        getNow() {
+            const today = new Date();
+            return today.getHours() + ":" + today.getMinutes()
+        },
+        insertNewMessage($event) {
+            this.newMessage = $event?.target?.innerText || ""
+            let message = {
+                message: this.newMessage,
+                self: true,
+                timestamp: this.getNow()
+            }
+            this.emitter.emit('addNewMessage', message);
+            document.getElementsByClassName("chat-input-area")[0].innerText = ""
         }
     },
     mounted() {
-        document.getElementsByClassName("chat-input-area")[0].focus() 
+        document.getElementsByClassName("chat-input-area")[0].focus()
     }
 }
 </script>
@@ -28,7 +41,6 @@ export default {
     min-height: 50px;
     max-height: 150px;
     text-align: left;
-    color: black;
     font-size: 120%;
     padding: 18px;
     word-wrap: break-word;
@@ -41,10 +53,11 @@ export default {
     overflow: scroll;
     box-sizing: border-box;
 }
+
 [contenteditable][placeholder]:empty:before {
-  content: attr(placeholder);
-  position: absolute;
-  color: gray;
-  background-color: transparent;
+    content: attr(placeholder);
+    position: absolute;
+    color: gray;
+    background-color: transparent;
 }
 </style>

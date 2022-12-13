@@ -4,11 +4,12 @@
     <div class="message-space" @loadMessage="renderMessages">
         <div v-if="message.contact_name">
             <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
-            <div class="chat-space">
+            <div id="chat-space">
                 <div v-if="message.messages" style="width: 100%; height: 130px;"></div>
                 <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
-                <InputArea />
+
             </div>
+            <InputArea :message="message" />
         </div>
         <div v-else class="select-a-chat">
             <div class="select-a-chat-message">
@@ -148,27 +149,36 @@ export default {
                     message: "Hiii",
                     contact_name: "Shankar",
                     time: "22:45",
-                    image: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg"
+                    image: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg",
+                    messages: [
+                        
+                    ]
                 }
             ]
         }
     },
     methods: {
-        renderMessages(message) {
+        async renderMessages(message) {
+            await this.emptyMessage()
             this.message = message
         },
-        emptyMessage() {
+        addNewMessage(message) {
+            this.message.messages.push(message)
+        },
+        async emptyMessage() {
+            document.getElementById("chat-space")?.remove()
             this.message = {}
         }
     },
     created() {
-
         this.emitter.on('emptyMessage', this.emptyMessage);
         this.emitter.on('loadMessage', this.renderMessages);
+        this.emitter.on('addNewMessage', this.addNewMessage);
     },
     unmounted() {
-        this.emitter.off('emptyMessage');
+        this.emitter.off('emptyMessage', this.emptyMessage);
         this.emitter.off('loadMessage', this.renderMessages);
+        this.emitter.off('addNewMessage', this.addNewMessage);
     }
 }
 </script>
@@ -185,9 +195,11 @@ export default {
     .left-bar-list {
         display: none;
     }
+
     .resizer {
         visibility: hidden;
     }
+
     .select-a-chat {
         visibility: hidden;
     }
@@ -225,7 +237,7 @@ body {
     color: white;
 }
 
-.chat-space {
+#chat-space {
     bottom: 0;
     overflow-y: scroll;
     position: fixed;
@@ -233,6 +245,7 @@ body {
     margin: 1px;
     padding-top: 10px;
     max-height: 100%;
+    width: var(--right-width);
 }
 
 .select-a-chat-message {
