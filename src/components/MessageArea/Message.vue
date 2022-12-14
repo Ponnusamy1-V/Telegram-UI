@@ -75,6 +75,7 @@ export default {
     padding-right: 5px;
     padding-top: 2px;
     text-align: left;
+    word-break: break-all;
 }
 
 .message-box-display-right {

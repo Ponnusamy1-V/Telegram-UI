@@ -53,6 +53,8 @@ export default {
     width: 100%;
     display: flex;
     padding: 10px;
+    max-height: 60px;
+    align-items: center;
     border-radius: 5px;
     background: rgb(44, 44, 44);
     /* background: linear-gradient(to bottom, rgb(44, 44, 44) 0%, rgb(20, 20, 20) 100%); */
@@ -93,6 +95,7 @@ export default {
     max-height: 15px;
     font-size: 13px;
     overflow: hidden;
+    word-break: break-all;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;

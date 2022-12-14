@@ -188,13 +188,18 @@ export default {
     user-select: none;
 }
 
-@media screen and (width >= 1000px) {
+@media screen and (width >=1000px) {
     #chat-space {
         width: var(--right-width) !important;
     }
 }
 
 @media screen and (width < 1000px) {
+    .bottom-area {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
     #chat-space {
         width: 100% !important;
     }
@@ -217,8 +222,15 @@ export default {
     }
 
     .chat-input-area {
-        min-width: 100%;
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .bottom-area {
+        width: 100%;
+    }
+
+    .bottom-area-container {
+        min-width: 95% !important;
     }
 
     .top-bar {

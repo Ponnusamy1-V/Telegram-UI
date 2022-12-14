@@ -1,4 +1,4 @@
-# Telegram UI built using Vue3
+# [Telegram UI built using Vue3](https://ponnusamy1-v.github.io/Telegram-UI/)
 
 ## Project setup
 ```
@@ -19,7 +19,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
