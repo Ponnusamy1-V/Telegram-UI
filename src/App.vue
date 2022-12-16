@@ -17,8 +17,8 @@ export default {
 
 <style>
 :root {
-  --left-width: 35%;
-  --right-width: 65%;
+  --left-width: 30%;
+  --right-width: 70%;
   --input-bar-width: 80%;
 }
 

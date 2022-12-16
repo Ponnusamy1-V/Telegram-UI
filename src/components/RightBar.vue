@@ -4,7 +4,7 @@
     <div class="message-space" @loadMessage="renderMessages">
         <div v-if="message.contact_name">
             <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
-            <div id="chat-space">
+            <div id="chat-space" class="no-scrollbar">
                 <div v-if="message.messages" style="width: 100%; height: 130px;"></div>
                 <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
 
@@ -243,8 +243,7 @@ export default {
     width: 100%;
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.24);
-    overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
     font-size: 95%;
     display: flex;
     flex-wrap: wrap;
@@ -256,10 +255,17 @@ body {
     color: white;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 #chat-space {
     bottom: 0;
     overflow-y: scroll;
+    /* padding-right: 17px; 
+    box-sizing: content-box; */
     position: fixed;
+    scrollbar-width: none;
     bottom: 60px;
     margin: 1px;
     padding-top: 10px;

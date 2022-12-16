@@ -4,7 +4,7 @@
             <div class="emoji-selection">
                 <fa icon="fa fa-smile" class="smile-icon" size="xxl" />
             </div>
-            <div class="chat-input-area" contenteditable="true" v-on:keypress.ctrl.enter="insertNewMessage"
+            <div class="chat-input-area no-scrollbar" contenteditable="true" v-on:keypress.ctrl.enter="insertNewMessage"
                 placeholder="Type a Message..." oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" />
             <div class="send-messgae-btn" @click="insertNewMessage">
                 <fa icon="fa fa-paper-plane" size="xl" />
@@ -82,7 +82,7 @@ export default {
     word-wrap: break-word;
     background: rgb(33, 33, 33);
     justify-content: center;
-    overflow: scroll;
+    overflow-y: scroll;
     box-sizing: border-box;
 }
 
