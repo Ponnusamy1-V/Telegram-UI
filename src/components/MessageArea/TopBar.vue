@@ -36,6 +36,19 @@ export default {
             }
             this.emitter.emit('emptyMessage');
         }
+    },
+    created() {
+        let that = this
+        document.addEventListener('keyup', function (evt) {
+            evt = evt || window.event
+            if (evt.keyCode === 27) {
+                that.emptyMessageArea();
+            }
+        });
+        this.emitter.on("emptyMessageArea", this.emptyMessageArea)
+    },
+    mounted() {
+        this.emitter.off("emptyMessageArea", this.emptyMessageArea)
     }
 }
 </script>

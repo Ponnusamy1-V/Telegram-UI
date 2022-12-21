@@ -140,7 +140,7 @@ export default {
 }
 </style>
 <style scoped>
-.contact-items *:hover {
+.contact-items *:hover, :focus {
     background-color: rgb(43, 42, 53);
 }
 </style>

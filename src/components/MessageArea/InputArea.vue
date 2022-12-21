@@ -76,6 +76,7 @@ export default {
     border-radius: 10px;
     width: 100%;
     max-height: inherit;
+    min-height: 60px;
     text-align: left;
     font-size: 120%;
     padding: 18px;

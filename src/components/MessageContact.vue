@@ -1,5 +1,5 @@
 <template>
-    <div class="contact" @click="changeMessages($event)">
+    <div class="contact" tabindex="0" @click="changeMessages($event)" @keyup.enter="changeMessages($event)">
         <div class="contact-image">
             <ImageView :image="message.image" :contact="message.contact_name" />
         </div>

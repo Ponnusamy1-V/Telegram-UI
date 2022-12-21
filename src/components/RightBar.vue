@@ -1,31 +1,25 @@
 <template>
-    <LeftBar :leftbardata="leftbardata" class="left-bar-list" :class="{ 'stretch-left-bar': !message.contact_name }">
-    </LeftBar>
+    <LeftBar :leftbardata="leftbardata" class="left-bar-list" :class="{ 'stretch-left-bar': !message.contact_name }"> </LeftBar>
     <div class="message-space" @loadMessage="renderMessages">
         <div v-if="message.contact_name">
             <TopBar :image="message.image" :contact_name="message.contact_name" last_seen="12:45"></TopBar>
             <div id="chat-space" class="no-scrollbar">
-                <div v-if="message.messages" style="width: 100%; height: 130px;"></div>
+                <div v-if="message.messages" style="width: 100%; height: 130px"></div>
                 <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
-
             </div>
             <InputArea :message="message" />
         </div>
         <div v-else class="select-a-chat">
-            <div class="select-a-chat-message">
-                Select a chat to start conversation
-            </div>
+            <div class="select-a-chat-message">Select a chat to start conversation</div>
         </div>
     </div>
-
 </template>
 
 <script>
-import LeftBar from './LeftBar.vue'
-import TopBar from './MessageArea/TopBar.vue'
-import MessageBar from './MessageArea/Message.vue'
-import InputArea from './MessageArea/InputArea.vue'
-
+import LeftBar from "./LeftBar.vue";
+import TopBar from "./MessageArea/TopBar.vue";
+import MessageBar from "./MessageArea/Message.vue";
+import InputArea from "./MessageArea/InputArea.vue";
 
 export default {
     name: "MessageSpace",
@@ -41,84 +35,84 @@ export default {
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45"
+                            timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47"
+                            timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45"
+                            timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47"
+                            timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45"
+                            timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47"
+                            timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45"
+                            timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
-                            timestamp: "10:47"
-                        }
-                    ]
+                            timestamp: "10:47",
+                        },
+                    ],
                 },
                 {
                     contact_name: "Ponnusamy",
@@ -127,57 +121,55 @@ export default {
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
-                            timestamp: "10:45"
+                            timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
-                            timestamp: "10:46"
+                            timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
-                            timestamp: "10:46"
-                        }
-                    ]
+                            timestamp: "10:46",
+                        },
+                    ],
                 },
                 {
                     contact_name: "Shankar",
                     image: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg",
-                    messages: [
-
-                    ]
-                }
-            ]
-        }
+                    messages: [],
+                },
+            ],
+        };
     },
     methods: {
         async renderMessages(message) {
-            await this.emptyMessage()
-            this.message = message
+            await this.emptyMessage();
+            this.message = message;
         },
         addNewMessage(message) {
             if (!this.message.messages) {
-                this.message.messages = []
+                this.message.messages = [];
             }
-            this.message.messages.push(message)
+            this.message.messages.push(message);
         },
         async emptyMessage() {
-            document.getElementById("chat-space")?.remove()
-            this.message = {}
-        }
+            document.getElementById("chat-space")?.remove();
+            this.message = {};
+        },
     },
     created() {
-        this.emitter.on('emptyMessage', this.emptyMessage);
-        this.emitter.on('loadMessage', this.renderMessages);
-        this.emitter.on('addNewMessage', this.addNewMessage);
+        this.emitter.on("emptyMessage", this.emptyMessage);
+        this.emitter.on("loadMessage", this.renderMessages);
+        this.emitter.on("addNewMessage", this.addNewMessage);
     },
     unmounted() {
-        this.emitter.off('emptyMessage', this.emptyMessage);
-        this.emitter.off('loadMessage', this.renderMessages);
-        this.emitter.off('addNewMessage', this.addNewMessage);
-    }
-}
+        this.emitter.off("emptyMessage", this.emptyMessage);
+        this.emitter.off("loadMessage", this.renderMessages);
+        this.emitter.off("addNewMessage", this.addNewMessage);
+    },
+};
 </script>
 
 <style>
@@ -248,7 +240,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 body {
@@ -283,11 +274,11 @@ body {
     padding-left: 10px;
     padding-right: 10px !important;
     padding-top: 2px;
+    padding-bottom: 4px;
     padding-right: 2px;
     word-wrap: break-word;
     font-weight: 600;
     transform: translateX(-50%) translateY(-50%);
-
 }
 
 .select-a-chat {
