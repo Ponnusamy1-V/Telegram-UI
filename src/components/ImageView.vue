@@ -2,7 +2,7 @@
     <div class="profile-image">
         <img @click="hideImage()" :src="image" alt="img">
     </div>
-    <div v-if="showimage" @click.self="hideImage()" class="imageview-background">
+    <div v-if="showimage && openImage" @click.self="hideImage()" class="imageview-background">
         <div class="image-view-area">
             <div class="imageview-contact-name">
                 {{ contact }}
@@ -15,7 +15,7 @@
 <script>
 export default {
     name: "ImageView",
-    props: { contact: String, image: String },
+    props: { contact: String, image: String, openImage: Boolean },
     data() {
         return {
             showimage: false
@@ -59,14 +59,14 @@ export default {
     left: 0;
     position: fixed;
     background: rgba(5, 5, 5, 0.9) !important;
-    z-index: 1
+    z-index: 1020
 }
 
 .image-view-area {
     left: 25%;
     right: 25%;
     top: 20%;
-    bottom: 20%;
+    /* bottom: 20%; */
     position: fixed;
 }
 

@@ -180,13 +180,13 @@ export default {
     user-select: none;
 }
 
-@media screen and (width >=1000px) {
+@media screen and (width >=700px) {
     #chat-space {
         width: var(--right-width) !important;
     }
 }
 
-@media screen and (width < 1000px) {
+@media screen and (width < 700px) {
     .bottom-area {
         min-width: 100%;
         max-width: 100%;

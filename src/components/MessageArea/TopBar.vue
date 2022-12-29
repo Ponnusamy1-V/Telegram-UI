@@ -3,7 +3,7 @@
         <div class="icon-display-area">
             <fa icon="arrow-left" size="xl" @click="emptyMessageArea"/>
         </div>
-        <ImageView :image="image" :contact="contact_name" />
+        <ImageView :image="image" :contact="contact_name" :openImage="true" />
         <div class="message-area-top-bar">
             <div class="contact-name-display">
                 {{ contact_name }}
@@ -42,6 +42,10 @@ export default {
         document.addEventListener('keyup', function (evt) {
             evt = evt || window.event
             if (evt.keyCode === 27) {
+                if (document.getElementsByClassName("imageview-background")) {
+                    document.getElementsByClassName("imageview-background")
+                    return
+                }
                 that.emptyMessageArea();
             }
         });
