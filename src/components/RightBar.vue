@@ -7,7 +7,7 @@
                 <div v-if="message.messages" style="width: 100%; height: 130px"></div>
                 <MessageBar v-for="message in message.messages" :key="message" :message="message"></MessageBar>
             </div>
-            <InputArea :message="message" />
+            <InputArea/>
         </div>
         <div v-else class="select-a-chat">
             <div class="select-a-chat-message">Select a chat to start conversation</div>
@@ -35,81 +35,97 @@ export default {
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
+                            id: 1,
                             timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
+                            id: 2,
                             timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
+                            id: 3,
                             timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
+                            id: 4,
                             timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
+                            id: 5,
                             timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
+                            id: 6,
                             timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
+                            id: 7,
                             timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
+                            id: 8,
                             timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
+                            id: 9,
                             timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
+                            id: 10,
                             timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
+                            id: 11,
                             timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
+                            id: 12,
                             timestamp: "10:47",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
+                            id: 13,
                             timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
+                            id: 14,
                             timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
+                            id: 15,
                             timestamp: "10:46",
                         },
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: false,
+                            id: 16,
                             timestamp: "10:47",
                         },
                     ],
@@ -121,16 +137,19 @@ export default {
                         {
                             message: "If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. If position: relative; - the right property sets the right edge of an element to a unit to the left/right of its normal position.",
                             self: true,
+                            id: 17,
                             timestamp: "10:45",
                         },
                         {
                             message: "Hi",
                             self: false,
+                            id: 18,
                             timestamp: "10:46",
                         },
                         {
                             message: "How are you?",
                             self: true,
+                            id: 19,
                             timestamp: "10:46",
                         },
                     ],
@@ -178,6 +197,7 @@ export default {
     height: 100vh;
     min-width: var(--left-width);
     user-select: none;
+    transition-duration: 50ms;
 }
 
 @media screen and (width >=700px) {

@@ -1,12 +1,12 @@
 <template>
-    <div class="message-box-display" :class="{ 'message-box-display-right': message.self }">
-        <div v-if="message.self" class="message-info-from">
-
+    <div class="message-box-display" :class="{ 'message-box-display-right': message.self }" :id="'message-display-box-'+message.id">
+        <div v-if="message.self" class="message-info message-info-from">
+            <input class="select-message select-from-message" type="checkbox" :id="'select-'+message.id">
         </div>
         <div v-if="!message.self" class="chat-end chat-start">
             <svg width="9" height="20" xmlns="http://www.w3.org/2000/svg"><defs><filter x="-50%" y="-14.7%" width="200%" height="141.2%" filterUnits="objectBoundingBox" id="a"><feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feColorMatrix values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0" in="shadowBlurOuter1"></feColorMatrix></filter></defs><g fill="none" fill-rule="evenodd"><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" fill="#000" filter="url(#a)"></path><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" fill="rgb(33, 33, 33)" class="corner"></path></g></svg>
         </div>
-        <div class="message-box" :class="{ 'from-message': message.self }">
+        <div class="message-box" :class="{ 'from-message': message.self }" :id="'message-'+message.id">
             <div class="message-area">
                 {{ message.message }}
             </div>
@@ -17,8 +17,8 @@
         <div v-if="message.self" class="chat-end">
             <svg width="9" height="20" xmlns="http://www.w3.org/2000/svg"><defs><filter x="-50%" y="-14.7%" width="200%" height="141.2%" filterUnits="objectBoundingBox" id="a"><feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feColorMatrix values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0" in="shadowBlurOuter1"></feColorMatrix></filter></defs><g fill="none" fill-rule="evenodd"><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" fill="#000" filter="url(#a)"></path><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" fill="rgb(118, 106, 200)" class="corner"></path></g></svg>
         </div>
-        <div v-if="!message.self" class="message-info-to">
-
+        <div v-if="!message.self" class="message-info message-info-to">
+            <input class="select-message select-to-message" type="checkbox" :id="'select-'+message.id">
         </div>
     </div>
 </template>
@@ -96,5 +96,30 @@ export default {
 .chat-start {
     transform: rotateY(180deg);
     margin-right:-1px;
+}
+
+.message-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-message{
+    visibility: hidden;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.select-message:checked {
+    visibility: visible;
+    background-color: rgb(31, 120, 255);
 }
 </style>

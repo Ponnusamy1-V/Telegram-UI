@@ -55,7 +55,7 @@ export default {
     display: flex;
     min-width: var(--right-width);
     max-width: var(--right-width);
-    z-index: 1;
+    /* z-index: 1; */
     position: fixed;
     bottom: 0;
     margin-bottom: 5px;
